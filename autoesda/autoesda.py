@@ -100,7 +100,12 @@ def generate_report(gdf):
         </td>
     </tr>
     </table>
+    <div class="footer">
+    <p>Report generated with 
+        <a href="https://github.com/NicholasDeKock/autoESDA">autoESDA</a></p>
+    </div>
     </div>'''
+    
 
     ##########----------NUMERIC COLUMN SUMMARIES----------##########
 
@@ -263,14 +268,27 @@ def generate_report(gdf):
         width: 1%;
     }
     img {max-width:100%; height:auto}
-
+ 
+ /*Style the footer*/
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: deepskyblue;
+   color: white;
+   text-align: right;
+}
     </style>
     </head>
     <body onload="openTab(event, 'Summary')">
 
     <h1>autoESDA report</h1>
     <p>Click on the buttons inside the tabbed menu:</p>
-
+    <div class="footer">
+    <p>Report generated with 
+        <a href="https://github.com/NicholasDeKock/autoESDA">autoESDA</a></p>
+    </div>
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'Summary')">Summary</button>'''
         + tab_string + '''
@@ -411,6 +429,10 @@ def generate_html_string(gdf):
         </td>
     </tr>
     </table>
+    <div class="footer">
+    <p>Report generated with 
+        <a href="https://github.com/NicholasDeKock/autoESDA">autoESDA</a></p>
+    </div>
     </div>'''
 
     ##########----------NUMERIC COLUMN SUMMARIES----------##########
@@ -575,13 +597,27 @@ def generate_html_string(gdf):
     }
     img {max-width:100%; height:auto}
 
+/*Style the footer */
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: deepskyblue;
+   color: white;
+   text-align: right;
+}
     </style>
     </head>
     <body onload="openTab(event, 'Summary')">
 
     <h1>autoESDA report</h1>
     <p>Click on the buttons inside the tabbed menu:</p>
-
+    <div class="footer">
+    <p>Report generated with 
+        <a href="https://github.com/NicholasDeKock/autoESDA">autoESDA</a></p>
+    </div>
+    
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'Summary')">Summary</button>'''
         + tab_string + '''
