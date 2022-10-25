@@ -1,5 +1,6 @@
 """Main module."""
 
+
 import geopandas as gpd
 import pysal as ps
 import matplotlib.pyplot as plt
@@ -101,6 +102,24 @@ def generate_report(gdf):
     </tr>
     </table>
     </div>'''
+    
+    # create about page
+    About_page ='''
+    h2> Welcome to autoESDA about page </h2>
+        <p> below is the information of when the report is generated:</p>
+        <p id="date"></p>
+        <p><strong>Note:</strong>The report will generate a new date and time whenevr the user login in</P>
+        
+        <br>
+        <h5><b>Explaination of the statistics</b></h5>
+        <p>The first statistics we should consider when looking at Correlation is the moran's I. Moran's I 
+            is used to asses spatial auto Correlation.The moran's I can be dispersed, random or clustered.
+            when the moran'd i index value is negative, it indicate dispersed patterns. When the value is positive
+         indicate clustered patterns and zero indicate randomness. Looking at our variable, we can see that all the 
+           moran's I values are positive,meaning they are clustering of similar values. The "white" variable
+          have the highest moran's I and the "indians" variable have low moran's I.Looking at the p-value
+        we can see that the variable have a p-value of less than 0.05 mraning the test hypothesis is false
+        </p>'''
 
     ##########----------NUMERIC COLUMN SUMMARIES----------##########
 
@@ -275,10 +294,14 @@ def generate_report(gdf):
         <button class="tablinks" onclick="openTab(event, 'Summary')">Summary</button>'''
         + tab_string + '''
         <button class="tablinks" onclick="openTab(event, 'Correlation')">Correlation</button>
+        <button class="tablinks" onclick="openTab(event, 'About')">About</button>
     </div>
 
     <div id="Summary" class="tabcontent">
         ''' + summary_page + '''
+    </div>
+    <div id = "About" class= "tabcontent">
+         ''' + About_page + '''
     </div>'''
     + div_string + '''
     <div id="Correlation" class="tabcontent">
@@ -611,6 +634,10 @@ def generate_html_string(gdf):
     </table>
 
     <script>
+    
+    const date = new Date();
+    document.getElementById("date").innerHTML = date;
+    
     function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
